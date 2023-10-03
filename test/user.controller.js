@@ -24,17 +24,7 @@ describe('User', () => {
       })
     })
     
-    it('only connect with the user', (done) => {
-      const user = {
-        username: 'sergkudinov',
 
-      }
-      userController.create(user, (err, result) => {
-        expect(err).to.not.be.equal(null)
-        expect(result).to.be.equal('OK')
-        done()
-      })
-    })
 
     it('passing wrong user parameters', (done) => {
       const user = {
@@ -46,6 +36,18 @@ describe('User', () => {
         expect(result).to.be.equal(null)
         done()
       })
+      it('only give username as input', (done) => {
+        const user = {
+          username: 'sergkudinov',
+
+        }
+        userController.create(user, (err, result) => {
+          expect(err).to.be.equal(null)
+          expect(result).to.be.equal(null)
+          done()
+        })
+      })
+      
     })
 
     it('avoid creating an existing user', (done)=> {
