@@ -23,6 +23,18 @@ describe('User', () => {
         done()
       })
     })
+    
+    it('only connect with the user', (done) => {
+      const user = {
+        username: 'sergkudinov',
+
+      }
+      userController.create(user, (err, result) => {
+        expect(err).to.be.equal(null)
+        expect(result).to.be.equal('OK')
+        done()
+      })
+    })
 
     it('passing wrong user parameters', (done) => {
       const user = {
